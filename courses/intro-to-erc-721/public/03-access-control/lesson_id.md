@@ -20,7 +20,7 @@ contract Bank {
     address public feeCollector;
     uint256 public bankFee;
     uint256 public collectedFees;
-    mapping(address => uint) public balances;
+    mapping (address => uint) public balances;
 
     constructor(address _feeCollector, uint256 _bankFee) {
         owner = msg.sender;
