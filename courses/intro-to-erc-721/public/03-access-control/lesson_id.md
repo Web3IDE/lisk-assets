@@ -1,4 +1,4 @@
-###### **Kontrol akses**
+###### Kontrol akses
 
 Ketika kita berbicara tentang kontrol akses, kita merujuk pada serangkaian kebijakan yang diterapkan dalam kode kita untuk membatasi akses ke fitur tertentu dalam smart contract hanya untuk kelompok entitas tertentu.
 
