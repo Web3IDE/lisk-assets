@@ -1,89 +1,90 @@
-# Pengantar Token Non-Fungible (NFT)
+# Pengantar Non-Fungible Tokens (NFTs)
 
-## Cara Kerja Token Non-Fungible (NFT)
+## Cara Kerja Non-Fungible Tokens (NFTs)
 
-Token non-fungible, atau NFT, adalah jenis aset digital yang mewakili kepemilikan item atau konten **unik** di blockchain. Berbeda dengan token fungible (seperti token ERC-20), yang dapat dipertukarkan dan memiliki nilai yang sama dengan token lain dari jenis yang sama, sebagian besar NFT unik dan biasanya tidak dapat dipertukarkan satu-satu.
+Non-fungible tokens, atau NFT, adalah jenis aset digital yang mewakili kepemilikan suatu **item unik** atau konten di blockchain. Berbeda dengan token fungible (seperti token ERC-20), yang dapat saling dipertukarkan dan memiliki nilai yang sama, sebagian besar NFT bersifat unik dan biasanya tidak dapat dipertukarkan satu lawan satu.
 
-Ada beberapa standar untuk NFT, tetapi yang asli dan paling umum digunakan disebut ERC-721. Itulah sebabnya Anda mungkin juga melihat nama **token ERC-721** sebagai alias untuk NFT.
+Terdapat beberapa standar untuk NFT, tetapi yang pertama dan paling sering digunakan adalah **ERC-721**. Oleh karena itu, istilah **token ERC-721** sering digunakan sebagai sinonim untuk NFT.
 
-NFT sering dirilis dalam kelompok yang memiliki arti serupa — kelompok ini disebut **koleksi**. Misalnya, Anda mungkin memiliki NFT yang mewakili gambar kucing oleh penulis yang sama dalam satu koleksi, dan NFT yang mewakili gambar anjing oleh penulis yang berbeda dalam koleksi lain. Salah satu koleksi terkenal disebut **Bored Ape Yacht Club**, yaitu sekumpulan gambar digital animasi kera dengan berbagai kostum dan aksesoris.
+NFT biasanya dirilis dalam kelompok yang memiliki makna serupa — kelompok ini disebut **koleksi**. Misalnya, Anda dapat memiliki NFT yang merepresentasikan gambar kucing oleh satu penulis dalam satu koleksi, dan NFT yang merepresentasikan gambar anjing oleh penulis lain dalam koleksi yang berbeda. Salah satu koleksi yang terkenal adalah **Bored Ape Yacht Club**, yang merupakan kumpulan gambar digital animasi kera dengan berbagai kostum dan properti.
 
-Setiap token non-fungible adalah representasi on-chain dari kombinasi berikut:
+Setiap NFT adalah representasi on-chain dari kombinasi berikut:
 
-- **ID Token Numerik**: Bilangan bulat sederhana yang unik untuk setiap token dalam sebuah koleksi.
+- **ID Token Numerik**: Sebuah angka unik untuk setiap token dalam sebuah koleksi.
 - **Alamat Kontrak Koleksi**: Seperti alamat dompet Anda, setiap kontrak pintar koleksi dapat diidentifikasi dengan alamat uniknya di jaringan.
-- **Jaringan**: Jaringan blockchain tempat koleksi berada, seperti Ethereum atau Lisk.
+- **Jaringan**: Jaringan blockchain tempat koleksi tersebut berada, seperti Ethereum atau Lisk.
 
-![Picture](/markdown/photo_02.jpg)
+![Gambar](/markdown/photo_02.jpg)
 
-Misalnya: NFT dengan ID 6477 yang ditempatkan di koleksi dengan alamat `0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d` di jaringan Ethereum berisi tautan ke gambar di atas.
+Sebagai contoh: Sebuah NFT dengan ID 6477 yang berada dalam koleksi di alamat `0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d` di jaringan Ethereum berisi tautan ke gambar di atas.
 
-Mungkin ada NFT lain yang menghubungkan ke gambar yang sama. Namun, yang membuat NFT benar-benar unik adalah kombinasi dari ketiga parameter ini — ID token, alamat koleksi, dan jaringan.
+Mungkin ada NFT lain yang menautkan ke gambar yang sama. Namun, yang membuat NFT benar-benar unik adalah kombinasi dari tiga parameter ini — ID token, alamat koleksi, dan jaringan.
 
-Dikatakan demikian, NFT tidak hanya tentang gambar, karena seringkali juga mewakili jenis konten dan aset lainnya...
+Namun, NFT tidak hanya tentang gambar, karena sering kali juga merepresentasikan jenis konten dan aset lainnya...
 
 ## NFT Bukan Hanya Gambar - Kasus Penggunaan
 
-Seperti yang disebutkan di bagian sebelumnya, NFT adalah jenis token unik yang mungkin berisi tautan ke konten lain.
+Seperti disebutkan dalam bagian sebelumnya, NFT adalah jenis token unik yang dapat berisi tautan ke beberapa konten lainnya.
 
-Jenis seni digital lain yang sering dihubungkan dengan NFT termasuk video dan **musik**. Misalnya, ada pasar NFT untuk pencipta musik di mana mereka dapat memperdagangkan token yang mewakili trek—bagian-bagian yang membentuk sebuah lagu. Karena struktur NFT, penulis lagu dapat otomatis menerima royalti dari setiap penjualan atau pemutaran lagu tersebut.
+Jenis seni digital lain yang sering dihubungkan oleh NFT mencakup video dan **musik**. Misalnya, ada pasar NFT untuk pembuat musik di mana mereka dapat memperdagangkan token yang merepresentasikan trek—bagian-bagian dari sebuah lagu. Karena struktur NFT, pencipta trek dapat secara otomatis memperoleh royalti dari setiap penjualan atau pemutaran lagu tersebut.
 
-Contoh hebat lainnya adalah industri **permainan**. NFT dapat mewakili item permainan (misalnya, pedang, karakter yang dapat dimainkan, peti hadiah, atau bahkan lahan di dalam permainan) dan kulitnya. Beberapa permainan daring, seperti Decentraland, dibangun sedemikian rupa sehingga setiap item yang dapat dimainkan adalah NFT yang juga bisa digunakan dalam permainan lain atau diperdagangkan di pasar terdesentralisasi.
+Contoh hebat lainnya adalah industri **game**. NFT dapat merepresentasikan item dalam game (misalnya, pedang, karakter yang dapat dimainkan, peti loot, atau bahkan tanah dalam game) dan skin-nya. Beberapa game online, seperti Decentraland, dibangun sedemikian rupa sehingga setiap item yang dapat dimainkan adalah NFT yang juga dapat digunakan di game lain atau diperdagangkan di pasar terdesentralisasi.
 
-Dalam dunia digital, beberapa NFT mungkin mewakili **nama domain** untuk situs web. Setelah Anda mendaftarkan nama domain dengan salah satu penyedia yang ramah-NFT, Anda juga menerima hak untuk menggunakan nama domain ini, mengarahkannya ke situs web mana pun, atau memperdagangkannya di pasar tanpa perlu registrasi terpusat.
+Tetap dalam dunia digital, beberapa NFT dapat merepresentasikan **nama domain** untuk situs web. Setelah Anda mendaftarkan nama domain dengan salah satu penyedia yang mendukung NFT, Anda juga menerima hak untuk menggunakan nama domain ini, mengarahkannya ke situs web mana pun, atau memperdagangkannya di pasar tanpa memerlukan pendaftar terpusat.
 
-Ingat bursa terdesentralisasi Uniswap dari pelajaran kita tentang token fungible? Penyedia likuiditas juga menerima NFT sebagai representasi standar dari bagian likuiditas mereka secara keseluruhan. Jadi, jika Anda menyediakan ETH dan USDT, sebagai gantinya Anda menerima NFT yang menyatakan, "pemilik NFT ini berhak menarik jumlah tertentu dari ETH dan USDT dari pool likuiditas." Anda dapat menyimpan NFT ini di dompet Anda atau memberikannya kepada orang lain. Namun ingat—siapa pun yang memegang NFT ini, mereka berhak menarik jumlah likuiditas yang diwakilinya. Dan begitu Anda menarik bagian likuiditas Anda dari pool, NFT ini akan dihancurkan.
+Ingat Uniswap, bursa terdesentralisasi dari pelajaran kita tentang token fungible? Penyedia likuiditas juga menerima NFT sebagai representasi standar dari bagian likuiditas keseluruhan mereka. Jadi, jika Anda menyediakan, misalnya, ETH dan USDT, Anda menerima NFT yang menyatakan, "pemilik NFT ini berhak menarik sejumlah ETH dan USDT ini dari kumpulan likuiditas." Anda dapat menyimpan NFT ini di dompet Anda, memberikan, atau menjualnya kepada orang lain. Namun ingat—siapa pun yang memegang NFT ini, mereka berhak menarik jumlah likuiditas yang direpresentasikannya. Dan setelah Anda menarik bagian likuiditas Anda dari kumpulan, NFT ini dihancurkan.
 
 ## Mengakses NFT dari Dompet Anda
 
-Jadi bagaimana Anda dapat melihat NFT yang dimiliki oleh alamat Anda? Seperti halnya dengan token asli dan token fungible, berinteraksi dengan NFT memerlukan dompet digital. Anda dapat memilih dari berbagai jenis dompet.
+Bagaimana Anda dapat melihat NFT yang dimiliki oleh alamat Anda? Sama seperti token native dan fungible, berinteraksi dengan NFT memerlukan dompet digital. Anda dapat memilih dari berbagai jenis dompet.
 
 - **Ekstensi Browser**: Banyak dompet berbasis browser, seperti MetaMask, dapat melihat NFT Anda, mentransfernya ke akun lain, dan melakukan operasi lainnya.
-- **Dompet Seluler**: Salah satu kasus penggunaan NFT yang hebat adalah bahwa NFT dapat mewakili, misalnya, tiket acara yang mudah dilacak dan dapat diperdagangkan di bursa terdesentralisasi. Setelah Anda memasuki tempat acara, Anda cukup membuka dompet seluler Anda, dan penyelenggara dapat memindai kode QR yang ditautkan oleh tiket NFT.
-- **Dompet Perangkat Keras**: Anda juga dapat menyimpan NFT Anda di dompet perangkat keras seperti Ledger atau Trezor. Ini dianggap sebagai opsi teraman untuk token dengan nilai tinggi, karena penyimpanan dingin sering kali dilindungi oleh langkah keamanan tambahan seperti kode PIN dan kata sandi khusus.
+- **Dompet Seluler**: Salah satu kasus penggunaan yang hebat dari NFT adalah bahwa NFT dapat merepresentasikan, misalnya, tiket acara yang mudah dilacak dan diperdagangkan di bursa terdesentralisasi. Setelah Anda memasuki tempat acara, cukup buka dompet seluler Anda, dan penyelenggara dapat memindai kode QR yang ditautkan oleh tiket NFT.
+- **Dompet Perangkat Keras**: Anda juga dapat menyimpan NFT Anda di dompet perangkat keras seperti Ledger atau Trezor. Ini dianggap sebagai opsi paling aman untuk token bernilai tinggi, karena penyimpanan dingin sering dilindungi oleh langkah-langkah keamanan tambahan seperti kode PIN dan kata sandi khusus.
+
 
 ## Transfer dan Persetujuan
 
-Transfer token adalah salah satu fitur dasar dari dompet apa pun yang mendukung kerja dengan NFT. Anda memilih token tertentu yang ingin ditransfer, alamat penerima, dan menekan tombol kirim. Tetapi Anda juga perlu memastikan bahwa Anda memiliki sejumlah kecil **token asli** (misalnya, ETH) di jaringan tempat Anda mengirim NFT untuk menutupi **biaya transaksi**, seperti yang disebutkan di pelajaran sebelumnya.
+Transfer token adalah salah satu fitur dasar dari dompet apa pun yang mendukung NFT. Anda cukup memilih token tertentu yang ingin ditransfer, memasukkan alamat penerima, dan menekan tombol kirim. Namun, Anda juga perlu memastikan memiliki sejumlah kecil **token asli** (misalnya, ETH) pada jaringan tempat Anda mengirim NFT untuk menutupi **biaya transaksi**, seperti yang telah disebutkan dalam pelajaran sebelumnya.
 
-Anda mungkin juga ingin memberi persetujuan kepada orang lain untuk mengoperasikan NFT Anda. Tapi mengapa Anda memberikan persetujuan daripada langsung mengirimkan token kepada mereka? Persetujuan sering diberikan bukan kepada pengguna akhir tetapi kepada kontrak pintar, misalnya, ke pasar yang akan kita bahas lebih mendalam di bagian mendatang.
+Anda mungkin juga ingin memberikan persetujuan kepada orang lain untuk mengoperasikan NFT Anda. Tapi mengapa memberikan persetujuan daripada langsung mengirimkan token tersebut? Persetujuan biasanya diberikan bukan kepada pengguna akhir tetapi kepada kontrak pintar, misalnya, kepada pasar NFT yang akan dibahas lebih mendalam di bagian berikutnya.
 
-Jika Anda memutuskan untuk menjual NFT Anda untuk token fungible di pasar, keseluruhan perdagangan terdiri dari beberapa langkah yang harus terjadi secara bersamaan. Persetujuan untuk pasar memungkinkan mereka menarik NFT dari dompet Anda saat perdagangan berlangsung, dan pada saat yang sama, mereka juga dapat mengirimkan token fungible yang Anda tukarkan dengan NFT tersebut.
+Jika Anda memutuskan untuk menjual NFT Anda untuk ditukar dengan token fungible di sebuah pasar, transaksi tersebut melibatkan beberapa langkah yang harus terjadi secara bersamaan. Memberikan persetujuan kepada pasar memungkinkan mereka menarik NFT dari dompet Anda selama perdagangan berlangsung, sambil secara bersamaan mengirimkan token fungible yang Anda terima dalam pertukaran tersebut.
 
 Ada dua jenis persetujuan terkait NFT:
 
-1. Anda dapat menyetujui seseorang untuk mengoperasikan **satu token tertentu** dari satu koleksi tertentu. Anda dapat mengulangi jenis persetujuan ini sebanyak yang Anda inginkan, dengan token berbeda dalam koleksi yang sama atau di koleksi yang berbeda.
-2. Anda juga dapat memberi mereka persetujuan untuk mengoperasikan **semua token** yang Anda miliki dalam koleksi tertentu. Dengan cara ini, Anda tidak perlu terus-menerus memberikan persetujuan satu kali jika Anda ingin mereka mengoperasikan beberapa token.
+1. Anda dapat menyetujui seseorang untuk mengoperasikan **satu token tertentu** dari koleksi tertentu. Persetujuan jenis ini dapat diulang sebanyak yang Anda inginkan, dengan token berbeda dalam koleksi yang sama atau di koleksi yang berbeda.
+2. Anda juga dapat memberikan persetujuan kepada mereka untuk mengoperasikan **semua token** yang Anda miliki dalam koleksi tertentu. Dengan cara ini, Anda tidak perlu terus-menerus memberikan persetujuan satu per satu jika ingin mereka mengoperasikan beberapa token sekaligus.
 
-Penting untuk dipahami bahwa operator yang disetujui (kepada siapa Anda memberikan persetujuan) dapat mentransfer NFT yang disetujui ini keluar dari dompet Anda. Jadi tetap berhati-hati dan berikan persetujuan hanya kepada orang atau protokol yang Anda percayai.
+Penting untuk dipahami bahwa operator yang disetujui (orang atau protokol yang Anda beri persetujuan) dapat mentransfer NFT tersebut keluar dari dompet Anda. Oleh karena itu, tetaplah berhati-hati dan hanya memberikan persetujuan kepada pihak yang Anda percayai.
 
 ## Contoh Dunia Nyata
 
-Kami sudah menyebutkan beberapa contoh di bagian Kasus Penggunaan. Mari kita lihat lebih dekat NFT Uniswap yang mewakili likuiditas.
+Kami telah menyebutkan beberapa contoh di bagian Kasus Penggunaan. Sekarang, mari kita lihat lebih dekat NFT Uniswap yang mewakili likuiditas.
 
-Dalam versi 3 mereka, protokol Uniswap memperkenalkan likuiditas terkonsentrasi, artinya Anda dapat menyediakan likuiditas bukan hanya untuk seluruh pool tetapi juga untuk rentang harga tertentu. Semakin kecil rentang harga di mana Anda menyediakan likuiditas, semakin besar bagian biaya perdagangan yang dapat Anda peroleh.
+Dalam versi 3 mereka, protokol Uniswap memperkenalkan likuiditas terkonsentrasi, yang berarti Anda dapat menyediakan likuiditas bukan hanya untuk keseluruhan pool tetapi juga untuk rentang harga tertentu. Semakin kecil rentang harga tempat Anda menyediakan likuiditas, semakin besar bagian biaya perdagangan yang bisa Anda peroleh.
 
-Begitu Anda menyediakan likuiditas dalam rentang tertentu, Uniswap membuat NFT untuk Anda yang mewakili bagian likuiditas ini. Ini berisi beberapa informasi penting seperti:
+Begitu Anda menyediakan likuiditas dalam rentang tertentu, Uniswap mencetak NFT untuk Anda yang mewakili bagian likuiditas tersebut. NFT ini mencakup informasi penting seperti:
 
 - Pool tertentu tempat Anda menyediakan likuiditas
 - Token fungible yang Anda setorkan (misalnya, ETH dan USDC)
-- Rentang harga posisi likuiditas (misalnya, antara 2.000 dan 3.000 USDC untuk 1 ETH)
+- Rentang harga posisi likuiditas (misalnya, antara 2.000 hingga 3.000 USDC untuk 1 ETH)
 
-Dan karena NFT sering **terhubung** dengan gambar, mereka juga membuat gambar yang dihubungkan oleh NFT, menampilkan grafik dari posisi likuiditas dan informasi berguna lainnya.
+Karena NFT sering kali **terkait** dengan gambar, mereka juga menciptakan gambar yang ditautkan oleh NFT tersebut, menampilkan grafik posisi likuiditas dan informasi bermanfaat lainnya.
 
-Sebagai contoh, [di sini](https://opensea.io/assets/ethereum/0xc36442b4a4522e871399cd717abdd847ab11fe88/1) Anda dapat melihat NFT posisi likuiditas pertama, yang dibuat oleh pendiri Uniswap Hayden Adams. Nilai "Tick" negatif mewakili rentang harga—dalam hal ini, tick bawah -50580 mewakili sekitar 0,00636 WETH per 1 token UNI, dan tick atas -36720 mewakili sekitar 0,02543 WETH per 1 UNI. Setiap kali token UNI diperdagangkan di antara titik harga ini, pemilik NFT menerima sebagian dari biaya perdagangan.
+Sebagai contoh, [di sini](https://opensea.io/assets/ethereum/0xc36442b4a4522e871399cd717abdd847ab11fe88/1) Anda dapat melihat NFT posisi likuiditas pertama, yang dicetak oleh pendiri Uniswap, Hayden Adams. Nilai "Tick" negatif menunjukkan rentang harga—dalam hal ini, tick bawah -50580 mewakili sekitar 0,00636 WETH per 1 UNI, dan tick atas -36720 mewakili sekitar 0,02543 WETH per 1 UNI. Setiap kali token UNI diperdagangkan dalam rentang harga ini, pemilik NFT menerima bagian dari biaya perdagangan.
 
-Tautannya mengarah ke OpenSea, salah satu **pasar** NFT terbesar dan paling awal. Ini menampilkan semua koleksi NFT di berbagai rantai dan semua token dalam koleksi tersebut. Begitu pemilik NFT saat ini memutuskan untuk menjual NFT mereka, mereka dapat melakukannya di OpenSea atau pasar lainnya.
+Tautan tersebut mengarah ke OpenSea, salah satu **pasar** NFT terbesar dan tertua. OpenSea menampilkan semua koleksi NFT di berbagai jaringan, termasuk semua token dalam koleksi tersebut. Ketika pemilik NFT memutuskan untuk menjual NFT mereka, mereka dapat melakukannya di OpenSea atau pasar lainnya.
 
 ## Pasar NFT
 
-Pasar NFT adalah platform tempat Anda dapat **memperdagangkan** NFT. Platform ini mirip dengan situs e-commerce dan rumah lelang daring tetapi beroperasi di teknologi blockchain, memastikan transparansi, keamanan, dan desentralisasi yang lebih dibandingkan sistem tradisional.
+Pasar NFT adalah platform tempat Anda dapat **memperdagangkan** NFT. Platform ini mirip dengan situs e-commerce dan rumah lelang daring, tetapi beroperasi menggunakan teknologi blockchain, yang memberikan transparansi, keamanan, dan desentralisasi lebih baik dibandingkan sistem tradisional.
 
-Beberapa pasar terkenal termasuk [OpenSea](https://opensea.io/), [Rarible](https://rarible.com/), dan [SuperRare](https://superrare.com/). Secara umum, situs pasar memindai semua koleksi NFT baru dan yang sudah ada di beberapa jaringan, mencari token yang baru dibuat. Begitu mereka menemukan token baru, mereka dapat menampilkan detailnya, seperti alamat penulis dan gambar yang dihubungkan oleh NFT, di situs pasar.
+Beberapa pasar terkenal meliputi [OpenSea](https://opensea.io/), [Rarible](https://rarible.com/), dan [SuperRare](https://superrare.com/). Umumnya, situs pasar memindai semua koleksi NFT baru dan yang sudah ada di beberapa jaringan untuk mencari token yang baru dibuat. Begitu mereka menemukan token baru, mereka dapat menampilkan detailnya, seperti alamat pembuat dan gambar yang ditautkan oleh NFT tersebut, di situs pasar.
 
-Siapa pun dapat menggunakan pasar untuk mendaftarkan NFT yang mereka miliki untuk dijual atau membeli NFT. Saat menggunakan pasar ini, Anda dapat menelusuri NFT yang tersedia, dan setelah **menghubungkan dompet Anda**, Anda dapat menawar atau membeli langsung.
+Siapa pun dapat menggunakan pasar untuk mendaftarkan NFT yang mereka miliki untuk dijual atau membeli NFT. Saat menggunakan pasar ini, Anda dapat menelusuri NFT yang tersedia, dan setelah **menghubungkan dompet Anda**, Anda dapat menawar atau membeli secara langsung.
 
-Karena listing terkait dengan pasar tertentu, beberapa penulis mungkin memilih untuk mendaftarkan NFT mereka untuk dijual hanya di satu atau dua situs terbesar, sementara yang lain mungkin ingin mendaftarkannya sebanyak mungkin.
+Karena daftar NFT biasanya **terikat pada pasar tertentu**, beberapa pembuat mungkin memilih untuk hanya mendaftarkan NFT mereka di satu atau dua situs terbesar, sementara yang lain mungkin ingin mendaftarkannya di sebanyak mungkin platform.
 
-Apakah Anda ingin mencoba membangun koleksi Anda sendiri? Jika ya, lanjutkan ke kursus IDE berikutnya di mana Anda dapat belajar untuk membuat kontrak pintar koleksi NFT sederhana.
+Ingin mencoba membangun koleksi Anda sendiri? Jika ya, lanjutkan ke kursus IDE berikutnya untuk belajar membuat kontrak pintar sederhana untuk koleksi NFT Anda sendiri.
 
