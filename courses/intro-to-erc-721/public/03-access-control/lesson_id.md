@@ -12,7 +12,7 @@ Tidak setiap fungsi harus dapat diakses oleh semua akun.
 
 Sebagai contoh, mari kita lihat kontrak dasar berikut:
 
-```solidity
+```sol
 pragma solidity 0.8.10;
 
 contract Bank {
