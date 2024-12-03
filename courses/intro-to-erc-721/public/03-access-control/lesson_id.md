@@ -76,6 +76,6 @@ Pada pelajaran terakhir, kita mengimplementasikan fungsi mint. Namun, perhatikan
 Untuk mengatasi masalah ini, kita perlu menambahkan batasan kontrol akses.
 
 1. Kontrak `AgorappNFT` harus menerima argumen bertipe `address` saat deployment.
-2. Pemanggilan fungsi `mintBadge` harus dibatasi.
+2. Pemanggilan `mintBadge` harus dibatasi.
 3. Pemanggilan yang tidak sah ke fungsi `mintBadge` harus dibatalkan dengan pesan error `UNAUTHORIZED_MINTER`.
 4. Jangan menambahkan dependensi tambahan.
