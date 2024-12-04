@@ -1,10 +1,10 @@
 ###### Metadata dan tokenURI di dalam penyimpanan
 
-Metadata NFT adalah sekumpulan anotasi yang kaya yang menggambarkan sebuah NFT.
+Metadata NFT adalah kumpulan anotasi kaya yang mendeskripsikan sebuah NFT.
 
-Biasanya, skema metadata mencakup URI yang mengarah ke gambar. Karena sebagian besar NFT saat ini merepresentasikan karya seni digital, URI metadata gambar mengarah ke aset yang di-tokenisasi oleh NFT tersebut.
+Biasanya, skema metadata mencakup URI yang menunjuk ke sebuah gambar. Karena sebagian besar NFT saat ini merepresentasikan karya seni digital, URI gambar dalam metadata mengarahkan ke aset yang ditokenisasi oleh NFT tersebut.
 
-Untuk meningkatkan interoperabilitas antara komponen NFT on-chain dan komponen off-chain - seperti marketplace - skema metadata akhirnya menyatu menjadi standar yang dikonsolidasikan: `ERC721 Metadata JSON Schema`.
+Untuk meningkatkan interoperabilitas antara komponen NFT yang ada di rantai (on-chain) dan komponen di luar rantai (off-chain) — seperti marketplace — skema metadata akhirnya berkembang menjadi standar yang terpadu: `ERC721 Metadata JSON Schema`.
 
 ```javascript
 {
@@ -27,7 +27,7 @@ Untuk meningkatkan interoperabilitas antara komponen NFT on-chain dan komponen o
 }
 ```
 
-Standar `ERC721 Metadata JSON Schema` juga dijelaskan dalam [eip-721 resmi](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md).
+Standar `ERC721 Metadata JSON Schema` juga dijelaskan. [eip-721 resmi](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md).
 
 Contoh dari `ERC721 Metadata JSON Schema` adalah metadata berikut:
 
@@ -39,25 +39,24 @@ Contoh dari `ERC721 Metadata JSON Schema` adalah metadata berikut:
 }
 ```
 
-Anda mungkin telah menyadari bahwa metadata NFT adalah entitas yang cukup besar, jika dibandingkan dengan variabel yang biasanya kita tangani dalam konteks on-chain.
+Anda mungkin memperhatikan bahwa metadata NFT adalah entitas yang cukup besar jika dibandingkan dengan variabel yang biasanya kita kelola dalam konteks on-chain.
 
-Penyimpanan adalah komoditas yang mahal di jaringan Ethereum, itulah alasan mengapa sebagian besar NFT menyimpan metadata mereka di luar rantai (off-chain).
+Penyimpanan adalah komoditas yang mahal di jaringan Ethereum, itulah sebabnya sebagian besar NFT menyimpan metadata mereka di luar rantai (off-chain).
 
-Untuk menghindari penggunaan layanan penyimpanan terpusat di luar rantai seperti s3 bucket, industri telah banyak mengadopsi platform peer-to-peer untuk kebutuhan penyimpanannya.
+Untuk menghindari penggunaan layanan penyimpanan off-chain terpusat seperti *s3 buckets*, industri sebagian besar telah mengadopsi platform peer-to-peer untuk kebutuhan penyimpanannya.
 
-Beberapa solusi penyimpanan terdesentralisasi yang paling menonjol adalah:
-
-- Ethereum Swarm
-- IPFS dan Filecoin
+Beberapa solusi penyimpanan terdesentralisasi yang paling menonjol adalah:  
+- Ethereum Swarm  
+- IPFS dan Filecoin  
 - Arweave
 
-Kecuali untuk IPFS - yang merupakan jaringan peer-to-peer - platform lainnya adalah blockchain penuh yang dioptimalkan untuk penyimpanan sebagai kasus penggunaan utama. Mereka memungkinkan untuk ketahanan sensor yang kuat, tidak dapat diubah, dan jaminan desentralisasi.
+Dengan pengecualian IPFS - yang merupakan jaringan peer-to-peer -, platform lainnya adalah blockchain sepenuhnya yang dioptimalkan untuk penyimpanan sebagai kasus penggunaan utama. Mereka menawarkan ketahanan terhadap sensor yang kuat, sifat tidak dapat diubah, dan jaminan desentralisasi.
 
-Standar `ERC721 Metadata JSON Schema` didukung secara luas oleh industri, termasuk oleh OpenSea - marketplace NFT terbesar. Spesifikasi lain yang diharapkan oleh OpenSea, seperti kebanyakan DApp dan API lainnya, adalah metode `tokenURI`.
+Standar `ERC721 Metadata JSON Schema` didukung secara luas oleh industri, termasuk oleh OpenSea - marketplace NFT terbesar. Spesifikasi lain yang diharapkan oleh OpenSea, seperti halnya sebagian besar DApps dan API lainnya, adalah metode **`tokenURI`.
 
-Metode `tokenURI` adalah penunjuk ke lokasi off-chain dari metadata NFT. Marketplace seperti OpenSea menggunakannya untuk mengambil data yang terkait dengan NFT dan menampilkannya.
+Metode `tokenURI` adalah penunjuk ke lokasi metadata NFT di luar rantai. Marketplace seperti OpenSea menggunakannya untuk mengambil data yang terkait dengan NFT dan menampilkannya.
 
-Dalam kontrak `ERC721` OpenZeppelin, [fungsi `tokenURI`](https://github.com/agorapp-dao/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol#L90-L98) membangun pointer URI secara dinamis dengan menggabungkan [`_baseURI()`](https://github.com/agorapp-dao/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol#L100-L107) dan `tokenId`.
+Dalam kontrak `ERC721` OpenZeppelin, [fungsi `tokenURI`](https://github.com/agorapp-dao/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol#L90-L98) membangun penunjuk URI secara dinamis dengan menggabungkan [`_baseURI()`](https://github.com/agorapp-dao/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol#L100-L107) dan `tokenId`.
 
 ```solidity
 /**
@@ -78,11 +77,11 @@ function _baseURI() internal view virtual returns (string memory) {
 }
 ```
 
-Output dari `_baseURI()` adalah string yang seharusnya menjadi prefiks umum dari semua URI, sedangkan `tokenId` menyediakan pengenal unik untuk membedakan URI yang dihasilkan.
+Output dari `_baseURI()` adalah string yang seharusnya menjadi awalan umum untuk semua URI, sementara `tokenId` memberikan pengidentifikasi unik untuk membedakan URI yang dihasilkan.
 
 ## Latihan
 
-- Buat `_baseURI()` mengembalikan "https://alice_in_wonderland/".
-- Deklarasikan event bernama `CreatedNFT` yang mengambil dua argumen `indexed`: `address` dan `tokenId`.
-- Panggil event `CreatedNFT` di akhir fungsi minting. Parameter yang perlu dicatat adalah penerima NFT yang dicetak dan token id dari NFT yang dicetak.
-- Jangan menambahkan dependensi tambahan.
+- Buat `_baseURI()` untuk mengembalikan "https://alice_in_wonderland/".
+- Deklarasikan sebuah event yang disebut `CreatedNFT` yang mengambil dua argumen `indexed`: `address` dan `tokenId`.
+- Nyatakan event `CreatedNFT` di akhir fungsi minting. Parameter yang perlu dicatat adalah penerima NFT yang dicetak dan ID token dari NFT yang dicetak.
+- Jangan tambahkan dependensi tambahan.
