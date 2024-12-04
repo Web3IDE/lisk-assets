@@ -1,20 +1,20 @@
 ###### Apa itu standar ERC-20
 
-ERC-20 adalah salah satu standar Ethereum paling awal (secara harfiah yang ke-20). Ini memungkinkan kita untuk membuat token khusus pada jaringan EVM - jadi tidak hanya Ethereum tetapi juga Polygon, Binance Smart Chain, Arbitrum, dan lainnya.
+ERC-20 adalah salah satu standar Ethereum yang paling awal (secara harfiah yang ke-20). Ini memungkinkan kita untuk membangun token kustom di jaringan EVM - bukan hanya Ethereum, tetapi juga Polygon, Binance Smart Chain, Arbitrum, dan lainnya.
 
-Dalam kursus ini, kita akan melihat sisi teknis bagaimana token ERC20 bekerja. Kita akan mengeksplorasi beberapa implementasi yang sudah ada - dan sebagai validasi dari apa yang telah kita pelajari, kita akan membangun token ERC20 kita sendiri di pelajaran terakhir.
+Dalam kursus ini, kita akan melihat sisi teknis bagaimana token ERC20 bekerja. Kita akan mengeksplorasi beberapa implementasi yang ada - dan sebagai validasi dari apa yang telah kita pelajari, kita akan membangun token ERC20 kita sendiri di pelajaran terakhir.
 
-**_Nama dan simbol_**
+***Nama dan simbol***
 
-Sebagai penulis token, Anda mungkin ingin memilih nama dan simbol token. Misalnya, salah satu token stablecoin terkenal menggunakan nama "Tether USD" dan simbol "USDT".
+Sebagai pembuat token, Anda mungkin ingin memilih nama dan simbol token. Sebagai contoh, salah satu token stablecoin yang terkenal menggunakan nama "Tether USD" dan simbol "USDT".
 
-Banyak aplikasi offchain (seperti Etherscan dan berbagai jenis pelacak token) menampilkan nama dan simbol token Anda sebagai cara yang lebih ramah pengguna untuk mengidentifikasi berbagai token dibandingkan hanya menampilkan alamat mereka.
+Banyak aplikasi offchain (seperti Etherscan dan semua jenis pelacak token) menampilkan nama dan simbol token Anda sebagai cara yang lebih ramah pengguna untuk mengidentifikasi token yang berbeda dibandingkan hanya menampilkan alamat mereka.
 
-**_Implementasi Sumber Terbuka_**
+***Implementasi Sumber Terbuka***
 
-Karena token ERC-20 adalah standar, ada banyak implementasi sumber terbuka dari standar ini yang dapat Anda manfaatkan saat membuat token Anda. Anda cukup memperluas kode mereka dan membangun di atas apa yang telah mereka buat, sehingga Anda tidak perlu menulis fitur dasar seperti transfer dan kueri saldo berulang kali.
+Karena token ERC-20 distandarisasi, ada banyak implementasi sumber terbuka dari standar ini yang dapat Anda manfaatkan saat membangun token Anda. Anda dapat dengan mudah memperluas kode mereka dan membangun di atas apa yang telah mereka buat, sehingga Anda tidak perlu menulis fitur dasar seperti transfer dan kueri saldo berulang-ulang.
 
-Dalam pelajaran berikutnya, kita akan menggunakan implementasi ERC20 open source yang dibuat oleh OpenZeppelin. Mari kita mulai dengan membiasakan diri dengan dasar-dasar kode mereka.
+Dalam pelajaran berikut, kita akan menggunakan implementasi sumber terbuka ERC20 yang dibuat oleh OpenZeppelin. Mari kita mulai dengan mengenal dasar-dasar kode mereka.
 
 Konstruktor mereka menerima dua argumen - nama token dan simbol. Mari kita coba.
 
