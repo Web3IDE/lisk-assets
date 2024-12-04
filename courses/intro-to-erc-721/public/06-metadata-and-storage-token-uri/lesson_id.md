@@ -1,88 +1,30 @@
-###### Metadata dan tokenURI di dalam penyimpanan
+###### Metadata dan tokenURI yang Disimpan
 
-Metadata NFT adalah sekumpulan anotasi yang kaya yang menggambarkan sebuah NFT.
+Dalam implementasinya terhadap standar ERC-721, OpenZeppelin mengikuti desain modular di mana kontrak dasar `ERC721` yang telah kita gunakan sejauh ini dapat dengan mudah diperluas.
 
-Biasanya, skema metadata mencakup URI yang mengarah ke gambar. Karena sebagian besar NFT saat ini merepresentasikan karya seni digital, URI metadata gambar mengarah ke aset yang di-tokenisasi oleh NFT tersebut.
+Ekstensi yang akan kita tambahkan pada pelajaran terakhir ini adalah kontrak `ERC721URIStorage`.
 
-Untuk meningkatkan interoperabilitas antara komponen NFT on-chain dan komponen off-chain - seperti pasar NFT -, skema metadata akhirnya menyatu menjadi standar yang dikonsolidasikan: `ERC721 Metadata JSON Schema`.
+Melihat kontrak `ERC721` [di sini](https://github.com/agorapp-dao/openzeppelin-contracts/blob/6bd6b76d1156e20e45d1016f355d154141c7e5b9/contracts/token/ERC721/ERC721.sol), kita dapat mengamati bahwa tokenUri tidak disimpan dalam penyimpanan kontrak, tetapi [dihitung setiap kali secara dinamis](https://github.com/agorapp-dao/openzeppelin-contracts/blob/6bd6b76d1156e20e45d1016f355d154141c7e5b9/contracts/token/ERC721/ERC721.sol#L93-L98). Karena string di Solidity cukup mahal, pendekatan ini memiliki keuntungan menghemat biaya gas.
 
-```javascript
-{
-    "title": "Asset Metadata",
-    "type": "object",
-    "properties": {
-        "name": {
-            "type": "string",
-            "description": "Identifies the asset to which this NFT represents"
-        },
-        "description": {
-            "type": "string",
-            "description": "Describes the asset to which this NFT represents"
-        },
-        "image": {
-            "type": "string",
-            "description": "A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive."
-        }
-    }
+Ekstensi `ERC721URIStorage` mengikuti pendekatan yang berbeda. Fungsi `_setTokenURI` menyimpan `_tokenURI` dalam penyimpanan kontrak.
+
+```sol
+function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual {
+    require(_exists(tokenId), "ERC721URIStorage: URI set of nonexistent token");
+    _tokenURIs[tokenId] = _tokenURI;
 }
 ```
 
-Standar `ERC721 Metadata JSON Schema` juga dijelaskan dalam [eip-721 resmi](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md).
+Mirip dengan [pemetaan `_owners`](https://github.com/agorapp-dao/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol#L29-L30) dalam kontrak `ERC721`, fungsi `_setTokenURI` dari `ERC721URIStorage` menggunakan pengidentifikasi unik `uint256 tokenId` untuk melacak nilai token uri dari sebuah NFT.
 
-Contoh dari `ERC721 Metadata JSON Schema` adalah metadata berikut:
-
-```javascript
-{
-  "name": "Agorapp Badge",
-  "description": "Enrich your on-chain resume by collecting skill badges which document your accomplishments!",
-  "image": "https://agorapp.dev/favicon.io",
-}
+```sol
+mapping(uint256 => string) private _tokenURIs;
 ```
-
-Anda mungkin telah menyadari bahwa metadata NFT adalah entitas yang cukup besar, jika dibandingkan dengan variabel yang biasanya kita tangani dalam konteks on-chain.
-
-Penyimpanan adalah komoditas yang mahal di jaringan Ethereum, itulah alasan mengapa sebagian besar NFT menyimpan metadata mereka di luar rantai (off-chain).
-
-Untuk menghindari penggunaan layanan penyimpanan terpusat di luar rantai seperti s3 bucket, industri telah banyak mengadopsi platform peer-to-peer untuk kebutuhan penyimpanannya.
-
-Beberapa solusi penyimpanan terdesentralisasi yang paling menonjol adalah:
-
-- Ethereum Swarm
-- IPFS dan Filecoin
-- Arweave
-
-Kecuali untuk IPFS - yang merupakan jaringan peer-to-peer -, platform lainnya adalah blockchain penuh yang dioptimalkan untuk penyimpanan sebagai kasus penggunaan utama. Mereka memungkinkan untuk ketahanan sensor yang kuat, tidak dapat diubah, dan jaminan desentralisasi.
-
-Standar `ERC721 Metadata JSON Schema` didukung secara luas oleh industri, termasuk oleh OpenSea - pasar NFT terbesar. Spesifikasi lain yang diharapkan oleh OpenSea, seperti kebanyakan DApp dan API lainnya, adalah metode `tokenURI`.
-
-Metode `tokenURI` adalah penunjuk ke lokasi off-chain dari metadata NFT. Pasar seperti OpenSea menggunakannya untuk mengambil data yang terkait dengan NFT dan menampilkannya.
-
-Dalam kontrak `ERC721` OpenZeppelin, [fungsi `tokenURI`](https://github.com/agorapp-dao/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol#L90-L98) membangun pointer URI secara dinamis dengan menggabungkan [`_baseURI()`](https://github.com/agorapp-dao/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol#L100-L107) dan `tokenId`.
-
-```solidity
-/**
- * @dev See {IERC721Metadata-tokenURI}.
- */
-function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
-    _requireMinted(tokenId);
-    string memory baseURI = _baseURI();
-    return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, tokenId.toString())) : "";
-}
-/**
- * @dev Base URI for computing {tokenURI}. If set, the resulting URI for each
- * token will be the concatenation of the `baseURI` and the `tokenId`. Empty
- * by default, can be overridden in child contracts.
- */
-function _baseURI() internal view virtual returns (string memory) {
-    return "";
-}
-```
-
-Output dari `_baseURI()` adalah string yang seharusnya menjadi prefiks umum dari semua URI, sedangkan `tokenId` menyediakan pengenal unik untuk membedakan URI yang dihasilkan.
 
 ## Latihan
 
-- Buat `_baseURI()` mengembalikan "https://alice_in_wonderland/".
-- Deklarasikan event bernama `CreatedNFT` yang mengambil dua argumen `indexed`: `address` dan `tokenId`.
-- Panggil event `CreatedNFT` di akhir fungsi minting. Parameter yang perlu dicatat adalah penerima NFT yang dicetak dan token id dari NFT yang dicetak.
-- Jangan menambahkan dependensi tambahan.
+- Kami telah mengimpor kontrak `ERC721URIStorage` dari OpenZeppelin untuk Anda. Sekarang saatnya Anda menggunakannya untuk memperluas `AgorappNFT` dan menggantikan kontrak `ERC721`.
+- Setiap token baru yang diterbitkan harus dikaitkan dengan `tokenURI`.
+- Token URI harus diatur saat memanggil fungsi `mintBadge`.
+- Perluas event `CreatedNFT` yang sebelumnya dibuat dengan menambahkan parameter ketiga bertipe `string`. Saat memicu event, parameter string harus berupa `tokenURI`.
+- Jangan tambahkan dependensi tambahan.
