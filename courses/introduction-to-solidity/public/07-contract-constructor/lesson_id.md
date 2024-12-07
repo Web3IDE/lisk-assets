@@ -1,8 +1,8 @@
-Fungsi konstruktor adalah jenis fungsi khusus yang **dieksekusi hanya sekali saat kontrak di-deploy**.
+Fungsi konstruktor adalah jenis fungsi khusus yang **hanya dijalankan sekali saat kontraknya diterapkan**.
 
 Jika Anda memiliki pengalaman dengan bahasa pemrograman berorientasi objek, Anda mungkin sudah familiar dengan konsep ini.
 
-Kita dapat menggunakan fungsi konstruktor untuk mengatur nilai awal variabel status kontrak pada saat deployment.
+Kita dapat menggunakan fungsi konstruktor untuk mengatur nilai awal dari variabel status kontrak pada saat penerapan.
 
 ```sol
 contract MyFavoriteNumber {
@@ -14,12 +14,12 @@ contract MyFavoriteNumber {
 }
 ```
 
-Dalam contoh di atas, konstruktor menetapkan variabel `myFavoriteNumber` agar sama dengan argumen `_myFavoriteNumber`-nya. Oleh karena itu, jika kontrak `myFavoriteNumber` di-deploy dengan nilai 4, maka nilai awal variabel status `myFavoriteNumber` akan menjadi 4.
+Pada contoh di atas, konstruktor mengatur variabel `myFavoriteNumber` agar nilainya sama dengan argumen `_myFavoriteNumber`-nya. Oleh karena itu, jika kontrak `myFavoriteNumber` diterapkan dengan nilai 4, maka nilai awal dari variabel status `myFavoriteNumber` akan menjadi 4.
 
-Demikian pula, jika kontrak `MyFavoriteNumber` di-deploy dengan nilai 13, maka nilai awal variabel status `myFavoriteNumber` akan menjadi 13.
+Demikian juga, jika kontrak `MyFavoriteNumber` diterapkan dengan nilai 13, maka nilai awal dari variabel status `myFavoriteNumber` akan menjadi 13.
 
 ## Latihan
 
-- Tambahkan konstruktor ke kontrak `Greeter` kita.
-- Konstruktor harus menerima satu argumen bertipe string.
-- Di dalam tubuh konstruktor, atur nilai variabel status publik `greeting` ke nilai dari argumen string konstruktor.
+- Tambahkan konstruktor ke kontrak `Greeter` kami.
+- Konstruktor tersebut harus menerima satu argumen bertipe string.
+- Di dalam tubuh konstruktor, atur nilai variabel status publik `greeting` dengan nilai dari argumen string konstruktor.
