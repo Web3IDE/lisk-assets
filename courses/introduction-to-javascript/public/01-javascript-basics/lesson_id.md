@@ -1,17 +1,17 @@
-## Dasar-dasar JavaScript
+## Dasar-Dasar JavaScript
 
-JavaScript (kadang-kadang disebut hanya sebagai JS) adalah bahasa pemrograman yang kuat dan digunakan oleh sebagian besar situs web saat ini. Dan bukan hanya situs web - Anda juga dapat menjalankan aplikasi berbasis JavaScript di perangkat mobile, server, dan lingkungan lainnya.
+JavaScript (sering disebut hanya sebagai JS) adalah bahasa pemrograman yang kuat yang digunakan oleh sebagian besar situs web saat ini. Dan bukan hanya situs web - Anda juga dapat menjalankan aplikasi yang didorong oleh JavaScript di ponsel, di server, dan lingkungan lainnya.
 
-Hari ini kita akan memulai pengenalan JavaScript. Pada akhir kursus ini, Anda akan dapat menulis aplikasi JS sederhana Anda sendiri.
+Hari ini kita akan memulai pengenalan tentang JavaScript. Di akhir kursus ini, Anda akan dapat menulis aplikasi JS sederhana Anda sendiri.
 
-Kembali pada tahun 1990-an, ketika internet mulai dikenal oleh banyak pengguna, pengembang browser ingin meningkatkan fitur dari browser yang mereka buat. Jadi mereka menemukan cara untuk membuat situs web lebih interaktif. Sebuah bahasa baru yang bisa Anda integrasikan ke dalam situs web Anda sebagai tambahan untuk situs HTML statis.
+Pada tahun 1990-an, ketika internet mulai diakui oleh banyak pengguna, pengembang browser ingin meningkatkan fitur browser yang mereka bangun. Jadi mereka menemukan cara untuk membuat situs web lebih interaktif. Sebuah bahasa baru yang dapat Anda integrasikan ke dalam situs web Anda sebagai tambahan dari situs HTML statis.
 
-Nama JavaScript sebenarnya terinspirasi oleh Java. Namun, perlu diperjelas - Java dan JavaScript adalah dua bahasa yang berbeda dan memiliki tujuan yang sedikit berbeda.
+Nama JavaScript sebenarnya terinspirasi dari Java. Tapi untuk memperjelas - Java dan JavaScript adalah dua bahasa yang berbeda dan mereka memiliki tujuan yang sedikit berbeda.
 
-Salah satu konsep kunci dari bahasa JS adalah variabel. Dengan menggunakan kata kunci `let`, Anda dapat mendeklarasikan variabel dan menetapkan nilai padanya. Sebagai contoh, di sini kita memiliki variabel bernama `message` dan nilainya adalah `Hello, World!`.
+Salah satu konsep utama dalam bahasa JS adalah variabel. Menggunakan kata kunci `let`, Anda dapat mendeklarasikan sebuah variabel dan memberinya nilai. Misalnya, di sini kita memiliki variabel bernama `message` dan nilainya adalah `Hello, World!`.
 
-Anda juga dapat melihat pernyataan `export` pada baris ke-3. Blok kode ini menunjukkan bahwa Anda ingin skrip Anda dapat mengirimkan data ke yang lain. Dalam kasus ini, kita memungkinkan `message` untuk diteruskan ke tempat lain karena disebutkan dalam blok `export`. Dan nilai dari variabel `message` nantinya dibaca oleh skrip lain yang memvalidasi perubahan dalam kode.
+Anda juga bisa melihat pernyataan `export` pada baris 3. Blok kode ini menunjukkan bahwa Anda ingin skrip Anda dapat mengirimkan data ke skrip lain. Dalam hal ini, kita mengizinkan `message` untuk dikirim ke tempat lain karena disebutkan dalam blok `export`. Nilai dari variabel `message` kemudian dibaca oleh skrip lain yang memvalidasi perubahan dalam kode.
 
 ## Latihan
 
-- Ubah `message` sehingga menjadi `Hello, Agorapp!` alih-alih `Hello, World!` yang asli.
+- Ubah `message` sehingga mengatakan `Hello, Agorapp!` alih-alih `Hello, World!`
