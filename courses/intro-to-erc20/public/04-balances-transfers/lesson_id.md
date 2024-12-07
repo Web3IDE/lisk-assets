@@ -1,12 +1,12 @@
 ###### Saldo dan transfer
 
-**_Saldo dan Total Suplai_**
+***Saldo dan Total Pasokan***
 
-Saldo saat ini dari alamat mana pun dapat diambil menggunakan fungsi standar `balanceOf(address)`. Bagaimana saldo tersebut disimpan sepenuhnya tergantung pada pengembang token. Namun dalam kebanyakan kasus, solusi optimal adalah menyimpan saldo dalam `mapping` di mana setiap kunci mewakili pemilik token dan nilai yang sesuai mewakili saldo mereka saat ini. Semua nilai dari mapping sudah 0 secara default, jadi Anda tidak perlu melakukan pengaturan awal untuk saldo.
+Saldo saat ini dari alamat mana pun dapat diambil menggunakan fungsi standar `balanceOf(address)`. Cara saldo tersebut disimpan tergantung pada pengembang token. Namun, dalam kebanyakan kasus, solusi optimal adalah dengan menyimpan saldo dalam `mapping` di mana setiap kunci mewakili pemilik token dan nilai yang sesuai mewakili saldo mereka saat ini. Semua nilai dalam mapping sudah 0 secara default, jadi Anda tidak perlu melakukan pengaturan awal untuk saldo.
 
-Ini juga cara bagaimana implementasi open source ini menyimpan saldo token.
+Ini juga cara implementasi sumber terbuka menyimpan saldo token.
 
-_OpenZeppelin `ERC20.sol`:_
+_OpenZeppelin `ERC20.sol`:_  
 
 ```
 mapping(address account => uint256) private _balances;
@@ -16,11 +16,11 @@ function balanceOf(address account) public view virtual returns (uint256) {
 }
 ```
 
-Namun, karena tidak ada cara mudah untuk mengambil semua nilai dari `mapping` atau untuk menjumlahkannya, kita perlu menyimpan total suplai secara terpisah. Total suplai menandakan jumlah dari semua saldo yang digabungkan.
+Namun, karena tidak ada cara mudah untuk mengambil semua nilai dalam `mapping` atau untuk menjumlahkannya, kita perlu menyimpan total pasokan secara terpisah. Total pasokan menunjukkan jumlah semua saldo yang digabungkan.
 
-Standar ini mengharuskan kita juga mengembalikan nilai gabungan ini menggunakan fungsi `totalSupply()`.
+Standar mengharuskan kita juga mengembalikan nilai gabungan ini menggunakan fungsi `totalSupply()`.
 
-_OpenZeppelin `ERC20.sol`:_
+_OpenZeppelin `ERC20.sol`:_  
 
 ```
 uint256 private _totalSupply;
@@ -30,17 +30,17 @@ function totalSupply() public view virtual returns (uint256) {
 }
 ```
 
-**_Transfer_**
+***Transfer***
 
 Kita dapat mentransfer token menggunakan fungsi `transfer(address,uint256)`. Argumen pertama adalah penerima token, dan argumen kedua adalah jumlah token yang ingin kita transfer.
 
-Perhatikan bahwa kita tidak menentukan pengirim token. Itu karena token - secara default - dikirim dari alamat mana pun yang memanggil fungsi ini. Kita akan membahas pengiriman token atas nama orang lain di pelajaran berikutnya.
+Perhatikan bahwa kita tidak menentukan pengirim token. Itu karena token secara default dikirim dari alamat mana saja yang memanggil fungsi ini. Kita akan membahas pengiriman token atas nama orang lain di pelajaran berikutnya.
 
-Jika transfer token berhasil, fungsi `transfer(address,uint256)` perlu mengembalikan `true` dan mengeluarkan event `Transfer(address,address,uint256)`. Argumen event ini memberi sinyal pengirim token, penerima, dan jumlahnya. Menerbitkan event sering kali berguna untuk aplikasi offchain (seperti Etherscan dan pelacak token lainnya) karena mereka dapat membaca event ini dan membangun basis data transfer per alamat, riwayat transfer, dan jenis data terindeks dan dapat dicari lainnya yang sebaliknya akan sulit diambil hanya dari buku besar blockchain mentah.
+Jika transfer token berhasil, fungsi `transfer(address,uint256)` perlu mengembalikan `true` dan memancarkan acara `Transfer(address,address,uint256)`. Argumen acara tersebut menunjukkan pengirim token, penerima, dan jumlah. Memancarkan acara sering kali berguna untuk aplikasi offchain (pikirkan Etherscan dan pelacak token lainnya) karena mereka dapat membaca acara ini dan membangun database mereka sendiri mengenai transfer per alamat, riwayat transfer, dan jenis data terindeks dan dapat dicari lainnya yang akan lebih sulit untuk diambil hanya dari buku besar blockchain mentah.
 
-Saat Anda memeriksa implementasi OpenZeppelin, Anda dapat melihat bahwa mereka juga memanggil `_beforeTokenTransfer(address,address,uint256)` di dalam fungsi `transfer(address,uint256)` mereka. Ini memungkinkan Anda untuk menambahkan fitur kustom seperti mengeluarkan event baru atau membatasi transfer oleh pengguna yang masuk daftar hitam.
+Saat Anda memeriksa implementasi OpenZeppelin, Anda dapat melihat bahwa mereka juga memanggil `_beforeTokenTransfer(address,address,uint256)` dalam fungsi `transfer(address,uint256)` mereka. Ini memungkinkan Anda untuk menambahkan fitur kustom seperti memancarkan acara baru atau membatasi transfer oleh pengguna yang diblacklist.
 
-_OpenZeppelin `ERC20.sol`:_
+_OpenZeppelin `ERC20.sol`:_  
 
 ```
 function transfer(address to, uint256 amount) public virtual override returns (bool) {
@@ -65,4 +65,4 @@ function _transfer(
 
 ## Latihan
 
-- Override fungsi OpenZeppelin `_beforeTokenTransfer(address,address,uint256)`. Buat fungsi tersebut menerbitkan event baru `VitalikTransfer` - tetapi hanya jika ada transfer ke atau dari alamat Vitalik `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`.
+- Override fungsi OpenZeppelin `_beforeTokenTransfer(address,address,uint256)`. Buatlah untuk memancarkan acara baru `VitalikTransfer` - tetapi hanya jika ada transfer ke atau dari alamat Vitalik `0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045`.
