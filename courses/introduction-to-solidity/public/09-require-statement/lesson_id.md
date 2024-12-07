@@ -1,10 +1,10 @@
-Salah satu dari banyak cara **msg.sender** bisa sangat penting adalah dalam menerapkan logika **kontrol akses** pada kontrak.
+Salah satu cara **msg.sender** dapat sangat penting adalah dalam menerapkan logika **kontrol akses** pada kontrak.
 
-Saat ini, siapa pun dapat memanggil fungsi `setGreeting` dan mengubah nilai variabel status `greeting` menjadi argumen string yang mereka pilih. Bagaimana kita memastikan bahwa hanya kita - yang melakukan deployment kontrak - yang diizinkan mengubah variabel `greeting`?
+Saat ini, siapa saja dapat memanggil fungsi `setGreeting` dan mengubah nilai variabel status `greeting` ke argumen string yang mereka pilih. Bagaimana kita bisa memastikan bahwa hanya kita - pihak yang menerapkan kontrak - yang diizinkan untuk mengubah variabel `greeting`?
 
-Dalam pelajaran sebelumnya, kita mendefinisikan variabel `owner`, yang akan selalu sama dengan kita - para penerbit kontrak. Ini berarti bahwa yang perlu kita lakukan hanyalah memeriksa apakah `msg.sender` yang memanggil fungsi `setGreeting` sama dengan alamat `owner`. Jika ya, maka semuanya berlanjut seperti biasa. Jika tidak, maka kita harus melemparkan pengecualian, yang mencegah logika `setGreeting` lainnya dijalankan.
+Pada pelajaran sebelumnya, kita mendefinisikan variabel `owner`, yang akan selalu setara dengan kita - pihak yang menerapkan kontrak. Ini berarti yang perlu kita lakukan adalah memeriksa apakah `msg.sender` yang memanggil fungsi `setGreeting` sama dengan alamat `owner`. Jika iya, maka semuanya akan berjalan seperti biasa. Jika tidak, maka kita harus melemparkan pengecualian, yang akan mencegah logika `setGreeting` lainnya dijalankan.
 
-Kita dapat menggunakan fungsi **require** untuk mencapai ini:
+Kita bisa menggunakan fungsi **membutuhkan** untuk mencapai hal ini:
 
 ```sol
 function myFunction() public {
@@ -12,10 +12,10 @@ function myFunction() public {
 }
 ```
 
-Dalam contoh di atas, kita dapat melihat bahwa `require` **mengambil kondisi dan pesan kesalahan sebagai argumen**. Jika kondisinya tidak terpenuhi, maka pengecualian akan dilemparkan, dan tidak ada perubahan yang akan disimpan di kontrak.
+Pada contoh di atas, kita bisa melihat bahwa `require` **menerima kondisi dan pesan kesalahan sebagai argumen**. Jika kondisi tersebut tidak terpenuhi, maka pengecualian akan dilemparkan, dan tidak ada perubahan yang akan disimpan di kontrak.
 
 ## Latihan
 
-- Tambahkan pernyataan `require` pada baris pertama di tubuh fungsi `setGreeting`.
-- Pernyataan `require` harus memastikan bahwa fungsi `setGreeting` hanya dapat dipanggil oleh pemilik kontrak.
-- Pernyataan `require` harus melemparkan string `caller is not the owner` jika kondisi yang ditetapkan tidak terpenuhi.
+- Tambahkan pernyataan `require` pada baris pertama tubuh fungsi `setGreeting`.
+- Pernyataan `require` perlu memastikan bahwa fungsi `setGreeting` hanya bisa dipanggil oleh pemilik kontrak.
+- Pernyataan `require` perlu melemparkan string `caller is not the owner` jika kondisi yang diassert tidak terpenuhi.
