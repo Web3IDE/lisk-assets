@@ -1,8 +1,8 @@
-Ketika Anda ingin menyimpan data yang persisten di kontrak Anda, Anda perlu menggunakan variabel status - nilai yang disimpan secara permanen di blockchain Ethereum melalui kontrak Anda.
+Saat Anda ingin menyimpan data yang persisten pada kontrak Anda, Anda perlu menggunakan **state variables** - nilai yang disimpan secara permanen di blockchain Ethereum melalui kontrak Anda.
 
-Variabel status dapat memiliki berbagai jenis, seperti **uint, bytes, address, bool, string**. Untuk daftar lengkap, [kunjungi tautan ini](https://docs.soliditylang.org/en/v0.8.10/types.html).
+State variables bisa berupa berbagai tipe, seperti **uint, bytes, address, bool, string**. Untuk daftar lengkap [kunjungi tautan ini](https://docs.soliditylang.org/en/v0.8.10/types.html).
 
-Berikut adalah contoh cara mendefinisikan variabel status di kontrak:
+Berikut adalah contoh bagaimana mendefinisikan state variable pada kontrak:
 
 ```sol
 contract Greeter {
@@ -12,28 +12,28 @@ contract Greeter {
 
 ## Akun
 
-Entitas yang dapat berinteraksi dengan smart contract disebut **akun**. Di jaringan Ethereum, ada dua jenis:
+Entitas yang dapat berinteraksi dengan kontrak pintar disebut **akun**. Di jaringan Ethereum, ada dua jenis:
 
-- **akun milik eksternal (EOA)**: Umumnya dianggap sebagai akun pengguna, EOA dikendalikan oleh seseorang dengan dompet Ethereum.
-- **akun kontrak**: Ini adalah alamat tempat smart contract berada.
+- **Akun yang dimiliki secara eksternal (EOA)**: Umumnya dianggap sebagai akun pengguna, EOA dikendalikan oleh seseorang dengan dompet Ethereum.
+- **Akun kontrak**: Ini adalah alamat tempat kontrak pintar berada.
 
 Baik EOA maupun akun kontrak dapat berinteraksi dengan kontrak Anda. Namun, penting untuk dicatat bahwa transaksi hanya dapat dimulai oleh EOA.
 
 ## Visibilitas
 
-Tidak semua orang dapat mengakses variabel status. Variabel status dapat memiliki tingkat **visibilitas** yang berbeda, yang menentukan siapa yang dapat berinteraksi dengannya.
+Tidak semua orang dapat mengakses state variable. State variable dapat memiliki berbagai tingkat **visibilitas**, yang menentukan siapa yang dapat berinteraksi dengan mereka.
 
-### Public
+### Publik
 
-Variabel status publik dapat diakses oleh siapa saja, baik dari dalam kontrak maupun dari luar kontrak:
+State variable publik dapat diakses oleh siapa saja, baik dari dalam kontrak maupun dari luar kontrak:
 
 ```sol
 uint256 public myFavoriteNumber;
 ```
 
-### Private
+### Pribadi
 
-Variabel status privat hanya dapat diakses dari dalam kontrak tempat variabel tersebut didefinisikan:
+State variable pribadi hanya dapat diakses dari dalam kontrak tempat variabel itu didefinisikan:
 
 ```sol
 uint256 private mySecretNumber;
@@ -41,9 +41,9 @@ uint256 private mySecretNumber;
 
 ### Internal
 
-Variabel status internal tidak dapat diakses dari luar kontrak. Namun, dapat diakses dari **kontrak anak**.
+State variable internal tidak dapat diakses dari luar kontrak. Namun, ia dapat diakses dari **kontrak anak**.
 
-Solidity adalah bahasa pemrograman berorientasi objek dan mendukung pewarisan. Kontrak anak adalah kontrak yang mewarisi dari kontrak lain:
+Solidity adalah bahasa pemrograman berorientasi objek dan mendukung pewarisan. Kontrak anak adalah kontrak yang mewarisi kontrak lain:
 
 ```sol
 contract ParentContract {
@@ -59,5 +59,5 @@ contract ChildContract is ParentContract {
 
 ## Latihan
 
-- Deklarasikan variabel status bernama `greeting` dengan tipe string.
-- Pastikan bahwa setiap akun dapat mengkueri variabel tersebut!
+- Deklarasikan sebuah state variable bernama `greeting` dengan tipe string.
+- Pastikan bahwa akun mana pun dapat melakukan query terhadapnya!
