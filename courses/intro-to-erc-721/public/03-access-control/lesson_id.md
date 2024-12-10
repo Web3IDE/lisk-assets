@@ -1,16 +1,16 @@
 ###### Kontrol akses
 
-Ketika kita berbicara tentang kontrol akses, kita merujuk pada serangkaian kebijakan yang ditegakkan dalam kode kita untuk membatasi akses ke fitur tertentu dalam smart contract hanya untuk kelompok entitas tertentu.
+Ketika kita berbicara tentang kontrol akses, kita mengacu pada serangkaian kebijakan yang diberlakukan dalam kode kita yang membatasi akses ke fitur-fitur tertentu dalam smart control hanya untuk sekelompok entitas tertentu.
 
-Dalam dunia pengembangan blockchain, kontrol akses adalah konsep keamanan paling mendasar saat mengembangkan smart contract.
+Dalam dunia pengembangan blockchain, kontrol akses merupakan konsep keamanan yang paling mendasar ketika mengembangkan smart contract.
 
-Sifat kode on-chain yang tidak dapat diubah membuat bug menjadi sangat sulit untuk diperbaiki. Bahkan dalam kasus di mana [kontrak dapat ditingkatkan](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), memperbaiki bug tetap bukanlah tugas yang mudah.
+Sifat kode on-chain yang tidak dapat diubah membuat bug sangat sulit untuk diperbaiki. Bahkan dalam kasus-kasus di mana [kontrak dapat ditingkatkan] (https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), memperbaiki bug bukanlah tugas yang mudah.
 
-Salah satu jenis kerentanan yang paling umum adalah kebijakan kontrol akses yang salah dikonfigurasi.
+Salah satu kelas kerentanan yang paling umum adalah, pada kenyataannya, kebijakan kontrol akses yang salah konfigurasi.
 
-Tidak setiap fungsi harus dapat diakses oleh semua akun.
+Tidak semua fungsi harus diekspos ke semua akun.
 
-Sebagai contoh, mari kita lihat kontrak dasar berikut:
+Sebagai contoh, mari kita lihat kontrak dasar berikut ini:
 
 ```sol
 pragma solidity 0.8.10;
@@ -59,17 +59,17 @@ Ada dua peran istimewa:
 - `feeCollector`, yang dapat melakukan satu operasi istimewa
 - `owner`, yang dapat melakukan semua operasi istimewa - termasuk mengelola identitas akun `feeCollector`.
 
-Meski contoh ini sederhana, ini tetap menunjukkan perlunya peran dan tingkat izin yang berbeda dalam smart contract. Mempelajari cara menyeimbangkan cakupan izin dan peran ini adalah aspek penting lain dari kontrol akses berbasis peran.
+Meskipun contoh ini sangat mendasar, contoh ini masih menyoroti perlunya peran dan tingkat izin yang berbeda dalam smart contract. Mempelajari bagaimana menyeimbangkan cakupan izin dan peran ini, pada kenyataannya, merupakan aspek penting lainnya dari kontrol akses berbasis peran.
 
-Kontrol akses dapat bervariasi dari solusi dasar, di mana hanya ada satu entitas istimewa, hingga sistem yang lebih canggih dengan banyak peran dan tingkat izin.
+Kontrol akses dapat bervariasi dari solusi dasar, di mana hanya ada satu entitas yang memiliki hak istimewa, hingga sistem yang lebih canggih dengan banyak peran dan tingkat izin.
 
-Dalam pelajaran ini, kita akan fokus pada skenario kontrol akses yang paling sederhana.
+Dalam pelajaran ini kita akan fokus pada skenario kontrol akses yang paling sederhana.
 
-Lihatlah kontrak `AgorappNFT`. Apakah Anda melihat ada fungsi yang harus dibatasi?
+Lihatlah kontrak `AgorappNFT`. Apakah Anda melihat ada fungsionalitas yang harus dibatasi?
 
 ## Latihan
 
-Dalam pelajaran terakhir, kita mengimplementasikan fungsi mint. Namun, waspadalah! Saat ini, semua orang dapat memanggilnya - yang berarti siapa saja dapat mencetak sebanyak mungkin Agorapp NFT sesuai keinginan mereka!
+Dalam pelajaran terakhir, kita sudah mengimplementasikan fungsi mint. Namun berhati-hatilah! Saat ini, semua orang dapat memanggilnya - yang berarti siapa pun dapat membuat NFT Agorapp sebanyak yang mereka inginkan!
 
 Untuk mengatasi masalah ini, kita perlu menambahkan batasan kontrol akses.
 
